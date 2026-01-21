@@ -1,10 +1,16 @@
 <?php
 
+use App\Livewire\Autores\MostrarAutores;
+use App\Models\Book;
+use App\Models\Prestamo;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
-});
+
+    $librosOcupados = Prestamo::where('estado', 'activo')->pluck('book_id');
+    $libros = Book::whereNotIn('id', $librosOcupados)->paginate(5);
+    return view('welcome', compact('libros'));
+})->name('inicio');
 
 Route::middleware([
     'auth:sanctum',
@@ -14,4 +20,5 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+
 });

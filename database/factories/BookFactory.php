@@ -29,8 +29,8 @@ class BookFactory extends Factory
         return [
             'titulo'=>fake()->unique()->realText('30'),
             'año_publicacion'=>fake()->year(),
-            'editorial'=>fake()->company(),
-            'num_paginas'=>fake()->numberBetween(),
+            'editorial'=>substr(fake()->company(), 0, 10) ,
+            'num_paginas'=>fake()->numberBetween(100, 1100),
             'author_id'=>$autores->random()->id,
             'category_id'=>$categorias->random()->id,
             'portada'=>Storage::disk('public')->putFileAs('images/books', new File($image), basename($image))
