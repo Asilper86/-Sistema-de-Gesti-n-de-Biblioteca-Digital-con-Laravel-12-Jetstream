@@ -1,10 +1,11 @@
 <x-mios.base>
     <h1 class="font-lg font-bold mb-2">Listado de libros Disponibles</h1>
+    
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
 
         @foreach ($libros as $item)
             <article
-                class="bg-white rounded-xl shadow border border-gray-100 overflow-hidden hover:shadow-lg transition-all duration-300 flex flex-col group">
+                @class(["bg-white rounded-xl shadow border border-gray-100 overflow-hidden hover:shadow-lg transition-all duration-300 flex flex-col group", 'cols-span-1 md:col-span-2' => $loop->first,])>
 
                 <div class="relative h-64 overflow-hidden bg-gray-100">
                     <img src="{{ Storage::url($item->portada) }}" alt="Portada del libro"
@@ -55,5 +56,8 @@
         @endforeach
 
 
+    </div>
+    <div class="mt-2">
+        {{ $libros->links() }}
     </div>
 </x-mios.base>

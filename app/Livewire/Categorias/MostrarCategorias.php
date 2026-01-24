@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Categorias;
 
+use App\Models\Category;
 use Livewire\Component;
 
 class MostrarCategorias extends Component

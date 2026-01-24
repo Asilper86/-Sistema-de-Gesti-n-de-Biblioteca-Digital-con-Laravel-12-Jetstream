@@ -1,6 +1,7 @@
 <?php
 
 use App\Livewire\Autores\MostrarAutores;
+use App\Livewire\Categorias\MostrarCategorias;
 use App\Models\Book;
 use App\Models\Prestamo;
 use Illuminate\Support\Facades\Route;
@@ -20,5 +21,8 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+
+    Route::get('autores', MostrarAutores::class)->name('autores');
+    Route::get('categories', MostrarCategorias::class)->name('categorias');
 
 });
