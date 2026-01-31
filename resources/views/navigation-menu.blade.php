@@ -12,15 +12,25 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                        Dashboard
+                    @auth
+                        <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                            Dashboard
+                        </x-nav-link>
+                        <x-nav-link href="{{ route('autores') }}" :active="request()->routeIs('autores')">
+                            Autores
+                        </x-nav-link>
+                        <x-nav-link href="{{ route('categorias') }}" :active="request()->routeIs('Categorias')">
+                            Categorias
+                        </x-nav-link>
+                        <x-nav-link href="{{ route('libros') }}" :active="request()->routeIs('libros')">
+                            Libros
+                        </x-nav-link>
+                    @endauth
+
+                    <x-nav-link href="{{ route('prestamos') }}" :active="request()->routeIs('prestamos')">
+                        Prestamos
                     </x-nav-link>
-                    <x-nav-link href="{{ route('autores') }}" :active="request()->routeIs('autores')">
-                        Autores
-                    </x-nav-link>
-                    <x-nav-link href="{{ route('categorias') }}" :active="request()->routeIs('Categorias')">
-                        Categorias
-                    </x-nav-link>
+
                 </div>
             </div>
 

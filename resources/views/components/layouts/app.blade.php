@@ -77,6 +77,7 @@
 
         Livewire.on('evtBorrarAutor', ({destino})=>mostrarAlerta(destino));
         Livewire.on('evtBorrarCategoria', ({destino})=>mostrarAlerta(destino));
+        Livewire.on('evtBorrarLibro', ({destino})=>mostrarAlerta(destino));
     </script>
 </body>
 
